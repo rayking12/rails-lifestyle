@@ -1,0 +1,35 @@
+<nav class="main-nav">
+    <%= link_to root_path, class: 'navbar-brand' do %>
+        <%= image_tag 'logo.svg'%>
+    <% end %>
+
+    <ul class="nav navbar-nav articles-categories">
+        <li class="nav-item">
+            <%= link_to 'Home', root_path %>
+            <div class="dropdown">
+                <li><%=link_to "New article", new_article_path, class: "dropdown-item"%></li>
+                <li><%=link_to "New category", new_category_path, class: "dropdown-item"%></li>
+        </li>
+     
+           
+        </ul>
+        <ul class="nav navbar-nav">
+            <% if !current_user%>
+                <li>
+                    <%= link_to 'Login', login_path%>
+                </li>
+                <li>
+                    <a href="#">|</a>
+                </li>
+                <li><%= link_to 'Register', signup_path%>
+                </li>
+            <% else %>
+                <li>
+                    <%= link_to current_user.username, '#' %>
+                </li>
+                <li>
+                    <%= link_to 'Logout', logout_path, method: 'DELETE'%>
+                </li>
+            <% end %>
+        </ul>
+    </nav>
