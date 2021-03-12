@@ -1,19 +1,11 @@
 <div class="container-fluid">
   <div class="row">
-    <article class="col-sm-12 article featured-article hero-article">
-      <span class="tl-cat">FEATURED ARTICLE</span>
-      <img class="img-responsive" src= 'https://cdn.vox-cdn.com/thumbor/8KWz4K8pLZJtxlnPXrqIIFBTBRo=/0x0:2878x1200/1520x0/filters:focal(0x0:2878x1200):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22359158/scarlet_witch_2.png'  alt="featured article" />
-      <div class="info">
-        <h1 class="title"> <%= @mva.title if @mva %> </h1>
-        <p class="description"><%= @mva.text if @mva %></p>
-      </div>
-    </article>
     <div class="voted-articles">
       <%if @categories%>
-        <% 8.times do |i|%>
+        <% 6.times do |i|%>
           <article class="featured-article article">
             <span class="tl-cat">FEATURED ARTICLE</span>
-            <img class="img-responsive" src="https://cdn.vox-cdn.com/thumbor/8KWz4K8pLZJtxlnPXrqIIFBTBRo=/0x0:2878x1200/1520x0/filters:focal(0x0:2878x1200):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22359158/scarlet_witch_2.png" alt="featured article" />
+            <img class="img-responsive" src="" alt="suits image" />
             <div class="info">
               <h4 class="title">
                 Title
@@ -27,7 +19,7 @@
             <article class="featured-article article">
             <a href="<%=category_path(cat.id)%>" > 
               <span class="tl-cat"><%= cat.name%> </span>
-              <img class="img-responsive" src="<%= la ? la.image : "" %>" alt="suits image" />
+              <img class="img-responsive" src="<%= la ? la.image_url : "https://jasonsmovieblog.files.wordpress.com/2021/02/son-of-the-south-lucas-till.jpg?w=1720&h=560&crop=1" %>" alt="suits image" />
               <div class="info">
                 <h4 class="title">
                   <%= la ? la.title : 'Be the first to write an article!'  %>

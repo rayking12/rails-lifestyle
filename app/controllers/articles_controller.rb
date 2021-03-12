@@ -1,71 +1,71 @@
 class ArticlesController < ApplicationController
-    before_action :require_login, only: %i[create new vote_for_article unvote_for_article]
+  before_action :set_article, only: %i[ show edit update destroy ]
 
+  # GET /articles or /articles.json
+  def index
+    @articles = Article.all
+  end
+
+  # GET /articles/1 or /articles/1.json
+  def show
+  end
+
+  # GET /articles/new
   def new
     @article = Article.new
   end
 
+  # GET /articles/1/edit
+  def edit
+  end
+
+  # POST /articles or /articles.json
   def create
-    @article = Article.new(articles_params)
+    @article = Article.new(article_params)
     @article.author_id = current_user.id
-
-    if params[:article][:file]
-      s3_service = Aws::S3::Resource.new
-      bucket_path = 'diego/' + File.basename(params[:article][:file].original_filename)
-
-      s3_file = s3_service.bucket('ror-capstone').object(bucket_path)
-      s3_file.upload_file(params[:article][:file].path, acl: 'public-read')
-      @article.image = s3_file.public_url.to_s
-    end
     @article.category_ids = params[:article][:category_ids]
 
-    if @article.save
-      redirect_to root_path
-    else
-      flash.now[:errors] = @article.errors.full_messages
-      render 'new'
+    respond_to do |format|
+      if @article.save
+        format.html { redirect_to @article, notice: "Article was successfully created." }
+        format.json { render :show, status: :created, location: @article }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def vote_for_article
-    @article = Article.find(params[:id])
-    if @article
-      @article.vote(current_user.id)
-      if @article.save
-        redirect_to request.referer
+  # PATCH/PUT /articles/1 or /articles/1.json
+  def update
+    respond_to do |format|
+      if @article.update(article_params)
+        format.html { redirect_to @article, notice: "Article was successfully updated." }
+        format.json { render :show, status: :ok, location: @article }
       else
-        redirect_to login_path
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
       end
-    else
-      redirect_to signup_path
     end
   end
 
-  def show
-    @article = Article.find(params[:id])
-  end
-
-  def unvote_for_article
-    @article = Article.find(params[:id])
-    if @article
-      @article.unvote(current_user.id)
-      if @article.save
-        redirect_to request.referer
-      else
-        redirect_to login_path
-      end
-    else
-      redirect_to signup_path
+  # DELETE /articles/1 or /articles/1.json
+  def destroy
+    @article.destroy
+    respond_to do |format|
+      format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
+      format.json { head :no_content }
     end
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_article
+      @article = Article.find(params[:id])
+    end
 
-  def require_login
-    redirect_to login_path unless current_user
-  end
-
-  def articles_params
-    params.require('article').permit(:title, :text)
-  end
+    # Only allow a list of trusted parameters through.
+    def article_params
+      params.require(:article).permit(:title, :body, :image)
+    end
 end
