@@ -18,14 +18,12 @@
         <% end %>  
       </ul>
     <% end %>
-                <%= form_for :session, url: login_path do |f| %>
-              <form action="#!">
+                <%= form_for(:session, url: login_path) do |f| %>
                   <div class="form-group mb-4">
                     <%= f.label :username,'Username', class: 'sr-only' %>    
                     <%= f.text_field :username, class: 'form-control', id: 'username', placeholder: 'Username' %>
                   </div>
                 <%= f.submit class:'btn btn-block login-btn mb-4', id: 'submit'%>
-                </form>
                 <% end %>
                 <p class="login-card-footer-text">Create a new account <%= link_to 'Signup', signup_path, class: 'text-reset' %></p> 
             </div>

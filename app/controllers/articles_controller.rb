@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :require_login, only: %i[create new vote_for_article unvote_for_article]
 
   # GET /articles or /articles.json
   def index
@@ -57,13 +58,49 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def vote_for_article
+    @article = Article.find(params[:id])
+    if @article
+      @article.vote(current_user.id)
+      if @article.save
+        redirect_to request.referer
+      else
+        redirect_to login_path
+      end
+    else
+      redirect_to signup_path
+    end
+  end
+
+  def show
+    @article = Article.find(params[:id])
+  end
+
+  def unvote_for_article
+    @article = Article.find(params[:id])
+    if @article
+      @article.unvote(current_user.id)
+      if @article.save
+        redirect_to request.referer
+      else
+        redirect_to login_path
+      end
+    else
+      redirect_to signup_path
+    end
+  end
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
     end
-
+    def require_login
+      redirect_to login_path unless current_user
+    end
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :body, :image)

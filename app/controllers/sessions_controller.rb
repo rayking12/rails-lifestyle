@@ -2,10 +2,10 @@ class SessionsController < ApplicationController
     def new; end
     
     def login
-        @user = User.find_by(session_params)
-        if @user
-            login_user(@user_id)
-            redirect_to root_path
+        user = User.find_by(username: session_params[:username])
+        if user
+            session[:user_id] = user.id
+            redirect_to root_path, notice: 'You have successfully logged in.'
         else
             flash.now[:login_error] = 'Username not found'
             render 'new'

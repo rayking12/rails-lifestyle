@@ -4,16 +4,22 @@
     <% end %>
 
     <ul class="nav navbar-nav articles-categories">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+    </ul>
         <li class="nav-item">
             <%= link_to 'Home', root_path %>
-            <div class="dropdown">
-                <li><%=link_to "New article", new_article_path, class: "dropdown-item"%></li>
-                <li><%=link_to "New category", new_category_path, class: "dropdown-item"%></li>
+                <% Category.includes(:latest_articles).each do |cat|%>
+            <a href="<%=category_path(cat.id)%>" >
+              <span class="tl-cat"><%= cat.name%> </span>
+              </a>
+            </article>
+
+        <%end%>
+
         </li>
-     
-           
         </ul>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav ">
             <% if !current_user%>
                 <li>
                     <%= link_to 'Login', login_path%>
@@ -24,6 +30,9 @@
                 <li><%= link_to 'Register', signup_path%>
                 </li>
             <% else %>
+            <li>
+                <%=link_to "New article", new_article_path, class: "dropdown-item"%>
+            </li>
                 <li>
                     <%= link_to current_user.username, '#' %>
                 </li>

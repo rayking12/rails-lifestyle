@@ -1,5 +1,13 @@
 <div class="container-fluid">
   <div class="row">
+  <article class="col-sm-12 article featured-article hero-article">
+      <span class="tl-cat">FEATURED ARTICLE</span>
+      <img class="img-responsive" src="<%= @mva ? @mva.image_url : "" %>" alt="suits image" />
+      <div class="info">
+        <h1 class="title"> <%= @mva.title if @mva %> </h1>
+        <p class="description"><%= @mva.body if @mva %></p>
+      </div>
+    </article>
     <div class="voted-articles">
       <%if @categories%>
         <% 6.times do |i|%>
