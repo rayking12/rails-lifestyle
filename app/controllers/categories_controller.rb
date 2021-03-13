@@ -13,7 +13,6 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
-  # GET /categories/1/edit
 
   def index
     @mva = Article.most_voted_article

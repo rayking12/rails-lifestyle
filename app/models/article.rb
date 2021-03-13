@@ -22,8 +22,8 @@ class Article < ApplicationRecord
 
   def vote(userid)
     vote = votes.build
+    self.vote_count = vote_count + 1 
     vote.user_id = userid
-    self.vote_count = vote_count + 1
     vote.save
   end
 
