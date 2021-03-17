@@ -13,9 +13,8 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
-
   def index
-    @mva = Article.most_voted_article
+    @mva = Article.order(vote_count: :desc).first
   end
   # POST /categories or /categories.json
   def create

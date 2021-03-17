@@ -1,11 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  author_id: 1
   title: MyString
   body: MyText
-  image_data: MyText
+  image_data: MyString
+  vote_count: 
 
 two:
+  author_id: 1
   title: MyString
   body: MyText
-  image_data: MyText
+  image_data: MyString
+  vote_count: 
