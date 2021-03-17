@@ -31,8 +31,12 @@ Rails.application.configure do
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false
 
+  config.active_record.maintain_test_schema = true
+
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
+
+  config.active_record.migration_error = false
 
   # Store uploaded files on the local file system in a temporary directory.
   config.active_storage.service = :test

@@ -1,48 +1,20 @@
 <nav class="main-nav">
-    <%= link_to root_path, class: 'navbar-brand' do %>
-    <div class='nav-item mt-3'>
-         <p style='color:black; font-size: 20px; font-weight:bold;'> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#F76108" class="bi bi-triangle-half" viewBox="0 0 16 16">
-  <path d="M8.065 2.016A.13.13 0 0 0 8.002 2v11.983l6.856.017a.12.12 0 0 0 .066-.017.162.162 0 0 0 .055-.06.177.177 0 0 0-.003-.183L8.12 2.073a.146.146 0 0 0-.054-.057zm-1.043-.45a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767L7.022 1.566z"/>
-</svg> MoViE-LiFe</p>
-    </div>
+  <%= link_to root_path, class: 'navbar-brand' do %>
+    <h1 style="margin:0 ;color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;"><%= image_tag('logo.jpg', style: 'width:50px')%> VetroMovies</h1>
+  <% end %>
+
+  <ul class="nav navbar-nav articles-categories">
+    <li class="nav-item"> <%= link_to 'Home', root_path %> </li>
+  </ul>
+  <ul class="nav navbar-nav">
+    <% if !current_user %>
+    <li> <%= link_to 'Login', login_path %> </li>
+      <li><a href="#">|</a></li>
+      <li><%= link_to 'Register', signup_path %> </li>
+    <% else %>
+    <li class="nav-item"> <%= link_to 'Write an article', new_article_path%>   </li>
+      <li> <%= link_to current_user.username, '#' %> </li>
+      <li> <%= link_to 'Logout', logout_path, method: 'DELETE'%> </li>
     <% end %>
-
-    <ul class="nav navbar-nav articles-categories">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-    </ul>
-        <li class="nav-item">
-            <%= link_to 'Home', root_path %>
-                <% Category.includes(:latest_articles).each do |cat|%>
-            <a href="<%=category_path(cat.id)%>" >
-              <span class="tl-cat"><%= cat.name%> </span>
-              </a>
-            </article>
-
-        <%end%>
-
-        </li>
-        </ul>
-        <ul class="nav navbar-nav ">
-            <% if !current_user%>
-                <li>
-                    <%= link_to 'Login', login_path%>
-                </li>
-                <li>
-                    <a href="#">|</a>
-                </li>
-                <li><%= link_to 'Register', signup_path%>
-                </li>
-            <% else %>
-            <li>
-                <%=link_to "New article", new_article_path, class: "dropdown-item"%>
-            </li>
-                <li>
-                    <%= link_to current_user.username, '#' %>
-                </li>
-                <li>
-                    <%= link_to 'Logout', logout_path, method: 'DELETE'%>
-                </li>
-            <% end %>
-        </ul>
-    </nav>
+  </ul>
+</nav>

@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 module SessionsHelper
   def login_user(user_id)
     session[:user_id] = user_id
-    end
+  end
 
   def current_user
     return unless session[:user_id]
