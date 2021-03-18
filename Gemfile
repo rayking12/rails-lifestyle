@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -8,17 +6,17 @@ ruby '2.7.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.2'
 # Use pg as the database for Active Record
+gem 'figaro'
 gem 'pg', '~> 1.2', '>= 1.2.3'
-gem "figaro"
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-gem 'image_processing', '~> 1.2'
-gem 'shrine', '~> 3.3'
-gem "shrine-cloudinary", "~> 1.1"
-gem 'cloudinary'
 gem 'bootstrap-sass'
+gem 'cloudinary'
+gem 'image_processing', '~> 1.2'
+gem 'sass-rails', '>= 6'
+gem 'shrine', '~> 3.3'
+gem 'shrine-cloudinary', '~> 1.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -37,10 +35,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-    gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~> 3.6'
-  gem "factory_bot_rails"
+  gem 'byebug', platform: :mri
   gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do
@@ -55,7 +53,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
-   gem 'shoulda-matchers', '~> 4.0'
+  gem 'shoulda-matchers', '~> 4.0'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end

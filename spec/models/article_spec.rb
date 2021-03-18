@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  let(:user) { User.create(name: 'Example User', username: 'usertest')}
+  let(:user) { User.create(name: 'Example User', username: 'usertest') }
   let(:category) { Category.create(name: 'Horror', priority: 1) }
   let(:article) do
     article = Article.new(title: 'Title', body: 'Content', author_id: user.id, image_data: 'urltest')

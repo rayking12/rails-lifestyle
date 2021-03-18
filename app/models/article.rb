@@ -1,7 +1,8 @@
 class Article < ApplicationRecord
+  include ImageUploader::Attachment(:image)
   validates :title, presence: true
   validates :body, presence: true
-  validates_presence_of :image_data, message: 'not uploaded'
+  validates_presence_of :image, message: 'not uploaded'
   validates_presence_of :categories, message: 'need to be selected.'
 
   belongs_to :author, class_name: 'User'
