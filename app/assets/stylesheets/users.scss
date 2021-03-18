@@ -2,101 +2,102 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 body {
-    font-family: "Karla", sans-serif;
-    min-height: 100vh;
+  font-family: "Karla", sans-serif;
+  min-height: 100vh;
 }
 
 .brand-wrapper {
-    margin-bottom: 19px;
+  margin-bottom: 19px;
 
-    .logo {
-        height: 37px;
-    }
+  .logo {
+      height: 37px;
+  }
 }
 
 .login-card {
-    border: 0;
-    border-radius: 27.5px;
-    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
-    overflow: hidden;
+  border: 0;
+  border-radius: 27.5px;
+  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
+  overflow: hidden;
 
 
-    &-img {
-        border-radius: 0;
-        width: 75%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .card-body {
-        padding: 85px 60px 60px;
+  &-img {
+      border-radius: 0;
+      width: 75%;
+      height: 100%;
+      object-fit: cover;
+  }
 
-        @media (max-width: 422px) {
-            padding: 35px 24px;
-        }
-    }
+  .card-body {
+      padding: 85px 60px 60px;
 
-    &-description {
-        font-size: 25px;
-        color: #000;
-        font-weight: normal;
-        margin-bottom: 23px;
-    }
+      @media (max-width: 422px) {
+          padding: 35px 24px;
+      }
+  }
 
-    form {
-        max-width: 326px;
-    }
+  &-description {
+      font-size: 25px;
+      color: #000;
+      font-weight: normal;
+      margin-bottom: 23px;
+  }
 
-    .form-control {
-        border: 1px solid #d5dae2;
-        padding: 15px 25px;
-        margin-bottom: 20px;
-        min-height: 45px;
-        font-size: 13px;
-        line-height: 15;
-        font-weight: normal;
+  form {
+      max-width: 326px;
+  }
 
-        &::placeholder {
-            color: #919aa3;
-        }
-    }
+  .form-control {
+      border: 1px solid #d5dae2;
+      padding: 15px 25px;
+      margin-bottom: 20px;
+      min-height: 45px;
+      font-size: 13px;
+      line-height: 15;
+      font-weight: normal;
 
-    .login-btn {
-        padding: 13px 20px 12px;
-        background-color: #000;
-        border-radius: 4px;
-        font-size: 17px;
-        font-weight: bold;
-        line-height: 20px;
-        color: #fff;
-        margin-bottom: 24px;
+      &::placeholder {
+          color: #919aa3;
+      }
+  }
 
-        &:hover {
-            border: 1px solid #000;
-            background-color: transparent;
-            color: #000;
-        }
-    }
+  .login-btn {
+      padding: 13px 20px 12px;
+      background-color: #000;
+      border-radius: 4px;
+      font-size: 17px;
+      font-weight: bold;
+      line-height: 20px;
+      color: #fff;
+      margin-bottom: 24px;
 
-    .forgot-password-link {
-        font-size: 14px;
-        color: #919aa3;
-        margin-bottom: 12px;
-    }
+      &:hover {
+          border: 1px solid #000;
+          background-color: transparent;
+          color: #000;
+      }
+  }
 
-    &-footer-text {
-        font-size: 16px;
-        color: #0d2366;
-        margin-bottom: 60px;
+  .forgot-password-link {
+      font-size: 14px;
+      color: #919aa3;
+      margin-bottom: 12px;
+  }
 
-        @media (max-width: 767px) {
-            margin-bottom: 24px;
-        }
-    }
+  &-footer-text {
+      font-size: 16px;
+      color: #0d2366;
+      margin-bottom: 60px;
 
-    &-footer-nav {
-        a {
-            font-size: 14px;
-            color: #919aa3;
-        }
-    }
+      @media (max-width: 767px) {
+          margin-bottom: 24px;
+      }
+  }
+
+  &-footer-nav {
+      a {
+          font-size: 14px;
+          color: #919aa3;
+      }
+  }
 }
