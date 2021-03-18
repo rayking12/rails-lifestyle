@@ -1,55 +1,92 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# VetroMovies App
+
+> VetroMovies is the most popular web app to write - read articles about the latest shows. Simply log in to your account and start exploring.  This project consists of a simple sessions system with login and sign-up functionalities. You'll be redirected to the homepage where all categories will be displayed together with the most recent article written in that category. You can click the category section to browse all articles inside a single category. I also implemented a voting system for the articles where the user can vote just once for each article.
 
 
-# Lifestyle Articles
-This project is about building lifestyle articles, a blog like kind of app
+## Features
 
-
-
+- User can log in only using the username
+- User sees the homepage where the first row is the most voted article followed by all categories - listed with the most recent article's image and title
+- Only logged in user can submit an article
+- When the user clicks on a category inside the homepage, they can see all articles in that category
+- Users can vote only once for each article.
+- Users can see the full description of an article [EXTRA Feature]
 
 ## Built With
 
-- Ruby on Rails
+- Ruby v2.7.2
+- Ruby on Rails v6.1.0
 
-## Getting Started
+## Live Demo
+
+Check the live version demo [here](https://lit-everglades-38109.herokuapp.com/)
+
+## Presentation Video
+Check out the presentation video[here](https://www.loom.com/share/b6dc103527644719b63b243d3af90dd1)
+
+
+# Homepage
+![VetroMovies homepage](/public/vetromovies.png)
+
+# Article's Page
+![VetroMovies articles](/public/article.png)
 
 ### Prerequisites
 
-If you intend to download the project, you will need to have Ruby already installed on your machine. For more information on how to install Ruby, follow [this link.](https://www.ruby-lang.org/en/downloads/)
+Ruby: 2.7.2
+Rails: 6.1.0
+Postgres: >=9.5
 
-### Installation instructions
+### Setup
 
-Follow along the steps below to get a copy on your local machine.
+Instal gems with:
 
-- Navigate to the directory where you want this project to live and then clone it `https://github.com/Oxford-G/private-events.git`
-- Navigate to the `private-events` directory
-- install the gem package with `bundle install`
-- Migrate the database on your local machine with `rails db:migrate`
-- Open the console ($ rails console)
+```
+bundle install
+```
 
-**To get your own copy of our project clone the repository to your local machine.**
+Setup database with:
 
-[repository](https://github.com/Oxford-G/private-events/tree/feature-branch)
+```
+   rails db:create
+   rails db:migrate
+```
+
+### Usage
+
+Start server with:
+
+```
+    rails server
+```
+
+Open `http://localhost:3000/` in your browser.
+
+### Run tests
+
+```
+    rspec --format documentation
+```
+
+> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
 
 ## Author
+
 👤 **Ray King**
 
 - GitHub [rayKing12](GitHub.com/rayking12)
 - Linkedin: [Ray King](https://www.linkedin.com/in/king-ray-514b89133/)
-- Twitter: [@OXFORD2](https://twitter.com/OXFOXD2)
 
+## Credits
+
+Thanks to [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) for her awesome design work. I based my work on  [this](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) design.
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/rayking12/re-former/issues).
+Feel free to check the [issues page](issues/).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-
-## 📝 License
-
-This project is [MIT](./LICENSE) licensed.
