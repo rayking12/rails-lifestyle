@@ -10,7 +10,7 @@ body {
   margin-bottom: 19px;
 
   .logo {
-      height: 37px;
+    height: 37px;
   }
 }
 
@@ -20,27 +20,26 @@ body {
   box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
   overflow: hidden;
 
-
   &-img {
-      border-radius: 0;
-      width: 75%;
-      height: 100%;
-      object-fit: cover;
+    border-radius: 0;
+    width: 75%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .card-body {
-      padding: 85px 60px 60px;
+    padding: 85px 60px 60px;
 
       @media (max-width: 422px) {
-          padding: 35px 24px;
-      }
+        padding: 35px 24px;
+        }
   }
 
   &-description {
-      font-size: 25px;
-      color: #000;
-      font-weight: normal;
-      margin-bottom: 23px;
+    font-size: 25px;
+    color: #000;
+    font-weight: normal;
+    margin-bottom: 23px;
   }
 
   form {
