@@ -229,10 +229,10 @@ footer {
       a.policy-links {
         color: $main-color;
       }
-      
+
       a {
         @include text;
-        
+
         text-transform: capitalize;
         font-weight: 500;
         color: white;
@@ -282,14 +282,17 @@ footer {
       height: 100%;
       order: 1;
     }
+
     .information {
       order: 2;
       height: 100%;
       width: 50%;
       padding: 10px 15px;
       position: relative;
+
       .cat {
         @include title;
+
         color: $main-color;
         border-bottom: 2px solid $main-color;
         padding-bottom: 2px;
@@ -297,18 +300,21 @@ footer {
       
       .title {
         @include title;
+
         margin-top: 15px;
       }
-      
+
       .description {
         margin-top: 15px;
         height: 50%;
       }
+
       .actions {
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
+
       .votes-wrapper {
         bottom: 0;
         right: 0;
@@ -327,6 +333,7 @@ footer {
           border: 1px solid rgba($color: $dark-background, $alpha: 0.6) ;
           padding: 5px;
           display: block;
+
           img {
             width: 80%;
             height: 80%;
@@ -362,18 +369,22 @@ footer {
 .article-wrapper {
   width: 70%;
   margin: 0 auto;
+
   img {
     @include image-cover;
     height: 50vh;
   }
+
   .info {
     padding: 40px;
     
     .title {
       @include title;
+
       font-size: 45px;
       width: 85%;
     }
+
     .description {
       @include text;
       margin-top: 20px;
@@ -381,6 +392,7 @@ footer {
       letter-spacing: 1.3px;
       line-height: 35px;
     }
+
     .footer-info {
       margin-top: 30px;
       padding-top: 20px;
@@ -388,10 +400,12 @@ footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       .author-info {
         color: $muted-text;
         font-size: 13px;
       }
+      
       .vote-btn {
         @include vote;
       }
