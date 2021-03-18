@@ -99,6 +99,7 @@ body {
   .tl-cat {
     @include title;
     @include inner-article-spacing;
+
     top: 0;
     left: 0;
     position: absolute;
@@ -113,17 +114,20 @@ body {
 .featured-article {
   .info {
     @include inner-article-spacing;
+
     position: absolute;
     bottom: 0;
     margin-bottom: 15px;
 
     .title {
       @include title;
+
       color: white;
     }
 
     .description {
       @include text;
+
       color: white;
     }
   }
@@ -142,6 +146,7 @@ body {
   .info {
     .title {
       @include title;
+
       color: $main-color;
       font-size: 22px;
     }
@@ -182,23 +187,28 @@ body {
   background: white;
   padding: 20px;
   border-radius: 3px;
-  box-shadow: 1px, 1px, 1px #4e443e;
+  box-shadow: 1px, #4e443e;
+
   h1 {
     @include title;
+
     font-size: 25px;
     color: $dark-background;
     margin-bottom: 40px;
     font-weight: 500;
   }
+
   form {
     label {
       text-transform: uppercase;
       color: $muted-text;
       font-size: 12px;
     }
+
     .form-group {
       margin-top: 20px;
     }
+
     input[type="submit"] {
       background-color: $main-color;
       border: none;
@@ -214,6 +224,7 @@ body {
 footer {
   .main-nav {
     background: $dark-background;
+
     ul {
       a.policy-links {
         color: $main-color;
@@ -221,6 +232,7 @@ footer {
       
       a {
         @include text;
+        
         text-transform: capitalize;
         font-weight: 500;
         color: white;
