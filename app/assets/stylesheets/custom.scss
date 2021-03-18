@@ -80,15 +80,9 @@ body {
         border: none;
       }
     }
-
-    a.cta {
-      &:hover {
-        border-bottom: 1px solid $main-color;
-        padding-bottom: 2px;
-      }
-    }
   }
 }
+
 .social-icons {
   img {
     width: 30px;
@@ -276,7 +270,6 @@ footer {
   background: white;
   padding: 20px;
   border-radius: 3px;
-  box-shadow: 1px #4e443e;
 
   h1 {
     @include title;
