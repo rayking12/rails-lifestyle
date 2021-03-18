@@ -39,7 +39,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
     gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.6'
-  gem 'factory_girl_rails'
+  gem "factory_bot_rails"
   gem 'database_cleaner'
 end
 

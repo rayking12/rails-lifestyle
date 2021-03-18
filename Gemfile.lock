@@ -100,11 +100,11 @@ GEM
       addressable (~> 2.5)
     erubi (1.10.0)
     execjs (2.7.0)
-    factory_girl (4.9.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
-      railties (>= 3.0.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     ffi (1.15.0-x64-mingw32)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -291,7 +291,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   cloudinary
   database_cleaner
-  factory_girl_rails
+  factory_bot_rails
   figaro
   image_processing (~> 1.2)
   jbuilder (~> 2.7)

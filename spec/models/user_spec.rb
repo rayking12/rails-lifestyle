@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { User.new(name: 'Example User', username: 'usertest') }
+
+  let(:user) { User.new(name: 'Example User', username: 'usertest')}
 
   describe 'validates user attributes' do
     it 'validates if the user is valid' do
@@ -27,7 +28,7 @@ RSpec.describe User, type: :model do
     it 'validates if articles association exists' do
       user.save
       cat = Category.create(name: 'Horror', priority: 1)
-      article = Article.new(title: 'Title', text: 'Content', author_id: user.id, image: 'urltest')
+      article = Article.new(title: 'Title', body: 'Content', author_id: user.id, image_data: 'urltest')
       article.category_ids = [cat.id]
       article.save
       expect(user.articles.count).to eql(1)

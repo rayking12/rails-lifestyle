@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  let(:user) { User.create(name: 'Example User', username: 'usertest') }
+  let(:user) { User.create(name: 'Example User', username: 'usertest')}
   let(:category) { Category.create(name: 'Horror', priority: 1) }
   let(:article) do
-    article = Article.new(title: 'Title', body: 'Content', author_id: user.id, image: 'urltest')
+    article = Article.new(title: 'Title', body: 'Content', author_id: user.id, image_data: 'urltest')
     article.category_ids = [category.id]
     article.save
     article
@@ -18,7 +18,7 @@ RSpec.describe Article, type: :model do
       article.title = ' '
       expect(article.valid?).not_to eql(true)
     end
-    it 'validates if the text is present' do
+    it 'validates if the body is present' do
       article.body = ' '
       expect(article.valid?).not_to eql(true)
     end
@@ -27,7 +27,7 @@ RSpec.describe Article, type: :model do
       expect(article.valid?).not_to eql(true)
     end
     it 'validates if the image is present' do
-      article.image = ' '
+      article.image_data = ' '
       expect(article.valid?).not_to eql(true)
     end
   end
