@@ -59,6 +59,14 @@ body {
   }
 }
 
+.social-icons {
+  img {
+    width: 30px;
+    height: 30px;
+    margin-top: -3px;
+  }
+}
+
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -285,7 +293,7 @@ footer {
     display: flex;
     flex-direction: row;
     height: 55vh;
-    
+
     img {
       width: 50%;
       height: 100%;
@@ -306,7 +314,7 @@ footer {
         border-bottom: 2px solid $main-color;
         padding-bottom: 2px;
       }
-      
+
       .title {
         @include title;
 
@@ -334,12 +342,12 @@ footer {
         & > * {
           margin: 5px;
         }
-  
+
         .vote-btn {
           width: 50px;
           height: 50px;
           border-radius: 100%;
-          border: 1px solid rgba($color: $dark-background, $alpha: 0.6) ;
+          border: 1px solid rgba($color: $dark-background, $alpha: 0.6);
           padding: 5px;
           display: block;
 
@@ -367,20 +375,13 @@ footer {
   color: red;
 }
 
-.social-icons {
-  img {
-    width: 30px;
-    height: 30px;
-    margin-top: -3px;
-  }
-}
-
 .article-wrapper {
   width: 70%;
   margin: 0 auto;
 
   img {
     @include image-cover;
+
     height: 50vh;
   }
 
@@ -396,6 +397,7 @@ footer {
 
     .description {
       @include text;
+
       margin-top: 20px;
       font-size: 19px;
       letter-spacing: 1.3px;
