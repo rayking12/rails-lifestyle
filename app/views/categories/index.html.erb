@@ -22,7 +22,7 @@
           </article>
         <%end%>
       <%else%>
-        <% Category.includes(:latest_articles).each do |cat|%>
+        <% @categ.each do |cat|%>
             <% la = cat.latest_articles.first %>
             <article class="featured-article article">
             <a href="<%=category_path(cat.id)%>" > 

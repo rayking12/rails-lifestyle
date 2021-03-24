@@ -45,6 +45,10 @@ Instal gems with:
 bundle install
 ```
 
+```
+bundle exec rake webpacker:install
+```
+
 Setup database with:
 
 ```

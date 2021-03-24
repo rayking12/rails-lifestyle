@@ -5,6 +5,11 @@
 
   <ul class="nav navbar-nav articles-categories">
     <li class="nav-item"> <%= link_to 'Home', root_path %> </li>
+    <% @categ.each do |cat|%>
+      <% la = cat.latest_articles.first %>
+      <article class="featured-article article">
+      <a href="<%=category_path(cat.id)%>" > 
+        <span class="tl-cat"><%= cat.name%> </span>
     <li class="nav-item"> <%= link_to 'Write an article', new_article_path%>   </li>
   </ul>
   <ul class="nav navbar-nav">

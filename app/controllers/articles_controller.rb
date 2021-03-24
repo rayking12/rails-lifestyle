@@ -28,37 +28,13 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def vote_for_article
-    @article = Article.find(params[:id])
-    if @article
-      @article.vote(current_user.id)
-      if @article.save
-        redirect_to request.referer
-      else
-        redirect_to login_path
-      end
-    else
-      redirect_to signup_path
-    end
-  end
+  
 
   def show
     @article = Article.find(params[:id])
   end
 
-  def unvote_for_article
-    @article = Article.find(params[:id])
-    if @article
-      @article.unvote(current_user.id)
-      if @article.save
-        redirect_to request.referer
-      else
-        redirect_to login_path
-      end
-    else
-      redirect_to signup_path
-    end
-  end
+  
 
   private
 

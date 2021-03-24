@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
 
   def index
     @mva = Article.most_voted_article
+    @categ = Category.includes(:latest_articles)
   end
 
   # POST /categories or /categories.json
