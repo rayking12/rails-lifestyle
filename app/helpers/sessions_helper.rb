@@ -3,16 +3,29 @@ module SessionsHelper
     session[:user_id] = user_id
   end
 
+  def image
+    @mva ? @mva.image_url : ''
+  end
+
   def current_user
     return unless session[:user_id]
 
     @current_user ||= User.find(session[:user_id])
   end
 
+  def body
+    return @mva.title if @mva
+  end
+
+  def title
+    return @mva.body if @mva
+  end
+
   def logout_user
     session.delete(:user_id)
     @current_user = nil
   end
+
   def vote_for_article
     @article = Article.find(params[:id])
     if @article
@@ -26,6 +39,7 @@ module SessionsHelper
       redirect_to signup_path
     end
   end
+
   def unvote_for_article
     @article = Article.find(params[:id])
     if @article
@@ -38,5 +52,5 @@ module SessionsHelper
     else
       redirect_to signup_path
     end
-  ends
+  end
 end

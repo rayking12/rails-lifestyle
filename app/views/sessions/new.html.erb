@@ -12,6 +12,7 @@
 
               </div>
               <p class="login-card-description">Login to your account</p>
+              <span class="error"> <%= flash[:login_error] if flash[:login_error] %> </span>
               <% if flash[:errors] %>
       <ul>
         <% flash[:errors].each do |error| %>

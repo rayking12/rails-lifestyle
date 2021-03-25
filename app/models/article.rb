@@ -33,6 +33,6 @@ class Article < ApplicationRecord
   end
 
   def truncate_text
-    body.length >= 200 ? body[0..200] + ' ...' : body + ' ...'
+    body.length >= 200 ? "#{body[0..200]} ..." : "#{body} ..."
   end
 end

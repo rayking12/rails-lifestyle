@@ -23,18 +23,13 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to root_path
     else
-      format.html { render :new, status: :unprocessable_entity }
-      format.json { render json: @article.errors, status: :unprocessable_entity }
+      render 'new'
     end
   end
-
-  
 
   def show
     @article = Article.find(params[:id])
   end
-
-  
 
   private
 
