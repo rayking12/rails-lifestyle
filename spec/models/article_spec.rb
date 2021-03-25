@@ -1,50 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  let(:user) { User.create(name: 'Example User', username: 'usertest') }
-  let(:category) { Category.create(name: 'Horror', priority: 1) }
-  let(:article) do
-    article = Article.new(title: 'Title', body: 'Content', author_id: user.id, image_data: 'urltest')
-    article.category_ids = [category.id]
-    article.save
-    article
-  end
-
-  describe 'validates article attributes' do
-    it 'validates if the article is valid' do
-      expect(article.valid?).to eql(true)
-    end
-    it 'validates if the article title is present' do
-      article.title = ' '
-      expect(article.valid?).not_to eql(true)
-    end
-    it 'validates if the body is present' do
-      article.body = ' '
-      expect(article.valid?).not_to eql(true)
-    end
-    it 'validates if the author is present' do
-      article.author_id = nil
-      expect(article.valid?).not_to eql(true)
-    end
-    it 'validates if the image is present' do
-      article.image_data = ' '
-      expect(article.valid?).not_to eql(true)
+  context 'creating articles' do
+    it 'records cannot be blank ' do
+      expect { Article.create! }.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 
-  describe 'validates article methods' do
-    it 'validates if most voted article exists' do
-      article.vote(user.id)
-      expect(Article.most_voted_article).to eql(article)
+  context 'checking article author' do
+    let(:user) { User.create(name: 'Luke', username: 'King') }
+    let(:article) { Article.create(title: 'New Title', body: 'content', author_id: user.id) }
+    it 'user author is Luke' do
+      expect(article.author.name).to eql('Luke')
     end
-    it 'validates if user voted for an article' do
-      article.vote(user.id)
-      expect(article.user_voted?(user.id)).to eql(true)
+  end
+
+  context 'testing associations' do
+    it 'should have one user' do
+      ar = Article.reflect_on_association(:author)
+      expect(ar.macro).to eq(:belongs_to)
     end
-    it 'validates if user unvoted for an article' do
-      article.vote(user.id)
-      article.unvote(user.id)
-      expect(article.user_voted?(user.id)).not_to eql(true)
+    it 'should have many categories' do
+      ar = Article.reflect_on_association(:categories)
+      expect(ar.macro).to eq(:has_many)
+    end
+    it 'should have many votes' do
+      ar = Article.reflect_on_association(:votes)
+      expect(ar.macro).to eq(:has_many)
     end
   end
 end

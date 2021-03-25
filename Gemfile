@@ -7,9 +7,11 @@ ruby '2.7.2'
 gem 'rails', '~> 6.1.2'
 # Use pg as the database for Active Record
 gem 'figaro'
+gem 'launchy', '~> 2.5'
 gem 'pg', '~> 1.2', '>= 1.2.3'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+
 # Use SCSS for stylesheets
 gem 'bootstrap-sass'
 gem 'cloudinary'
