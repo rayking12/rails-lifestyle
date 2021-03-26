@@ -18,14 +18,7 @@ RSpec.feature 'Articles', type: :system do
       fill_in 'username', with: 'king'
       click_on 'submit'
       click_link('New Article')
-      expect(page).to have_content('New Article')
-    end
-    it 'creates an article' do
-      visit login_path
-      fill_in 'username', with: 'king'
-      click_on 'submit'
-      click_link('New Article')
-      
+
       fill_in('article[title]', with: 'Harry Potter')
       sleep(2)
       fill_in('article[body]', with: 'Cool new Harry Potter book')
