@@ -18,8 +18,8 @@ RSpec.feature 'Articles', type: :system do
       fill_in 'username', with: 'king'
       click_on 'submit'
       click_link('New Article')
-    end
       expect(page).to have_content('New Article')
+    end
     it 'creates an article' do
       fill_in('article[title]', with: 'Harry Potter')
       sleep(2)
