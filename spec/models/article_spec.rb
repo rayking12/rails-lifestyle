@@ -9,6 +9,7 @@ RSpec.describe Article, type: :model do
 
   context 'checking article author' do
     let(:user) { User.create(name: 'Luke', username: 'King') }
+    let(:category) { Category.create(name: 'horror', priority: '1') }
     let(:article) { Article.create(title: 'New Title', body: 'content', author_id: user.id) }
     it 'user author is Luke' do
       expect(article.author.name).to eql('Luke')

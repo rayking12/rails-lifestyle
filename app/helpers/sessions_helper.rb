@@ -40,6 +40,10 @@ module SessionsHelper
     end
   end
 
+  def require_login
+    redirect_to login_path unless current_user
+  end
+
   def unvote_for_article
     @article = Article.find(params[:id])
     if @article
@@ -52,5 +56,13 @@ module SessionsHelper
     else
       redirect_to signup_path
     end
+  end
+
+  def flashes
+    return flash[:errors] if flash[:errors]
+  end
+
+  def terms
+    return image_tag @article.image_url if @article.image
   end
 end
