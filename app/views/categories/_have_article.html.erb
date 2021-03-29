@@ -1,0 +1,15 @@
+<% @categ.each do |cat|%>
+    <% la = cat.latest_articles.first %>
+    <article class="featured-article article">
+    <a href="<%=category_path(cat.id)%>" > 
+      <span class="tl-cat"><%= cat.name %> </span>
+      <img class="img-responsive" src="<%= la ? la.image_url : 'https://i.imgur.com/F5keC6d.jpg' %>" alt="first image" />
+      <div class="info">
+        <h4 class="title">
+          <%= la ? la.title : 'Be the first to write an article!'  %>
+        </h4>
+      </div>
+      </a>
+    </article>
+
+<%end%>

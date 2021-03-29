@@ -65,4 +65,37 @@ module SessionsHelper
   def terms
     return image_tag @article.image_url if @article.image
   end
+
+def display_article(categories)
+ if @categories
+  render partial: 'no_articles'
+else
+  render partial: 'have_article'
+end
+end
+
+def imagee
+   @categ.each do |cat|
+  la = cat.latest_articles.first  
+  return la ? la.image_url : 'https://i.imgur.com/F5keC6d.jpg'
+  end
+end
+def name
+  @categ.each do |cat|
+    la = cat.latest_articles.first 
+    return cat.name
+  end
+end
+def title 
+  @categ.each do |cat|
+    la = cat.latest_articles.first 
+    return la ? la.title : 'Be the first to write an article!'
+  end
+end
+
+def loopers
+  @categ.each do |cat|
+  end
+end
+
 end
