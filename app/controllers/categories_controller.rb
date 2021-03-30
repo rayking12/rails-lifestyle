@@ -1,4 +1,8 @@
 class CategoriesController < ApplicationController
+  before_action :require_login, only: %i[create new]
+  before_action :set_category, only: %i[show edit update destroy]
+
+  # GET /categories/1 or /categories/1.json
   def show; end
 
   # GET /categories/new
@@ -8,18 +12,20 @@ class CategoriesController < ApplicationController
 
   def index
     @mva = Article.most_voted_article
+    @categ = Category.includes(:latest_articles)
   end
 
   # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)
-    @category.name = params[:category][:name].capitalize
-    categ = Category.category_exists(@category.name)
-    if categ.exists?
-      render :new
-    else
-      @category.save
-      redirect_to root_path
+    respond_to do |format|
+      if @category.save
+        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.json { render :show, status: :created, location: @category }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @category.errors, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -2,42 +2,12 @@
   <div class="row">
   <article class="col-sm-12 article featured-article hero-article">
       <span class="tl-cat">FEATURED ARTICLE</span>
-      <img class="img-responsive" src="<%= @mva ? @mva.image_url : "" %>" alt="suits image" />
+      <img class="img-responsive" src="<%= image %>" alt=" image" />
       <div class="info">
-        <h1 class="title"> <%= @mva.title if @mva %> </h1>
-        <p class="description"><%= @mva.body if @mva %></p>
+        <h1 class="title"> <%= body %> </h1>
+        <p class="description"><%= title %></p>
       </div>
     </article>
-    <div class="voted-articles">
-      <%if @categories%>
-        <% 8.times do |i|%>
-          <article class="featured-article article">
-            <span class="tl-cat">FEATURED ARTICLE</span>
-            <img class="img-responsive" src="" alt="suits image" />
-            <div class="info">
-              <h4 class="title">
-                Title
-              </h4>
-            </div>
-          </article>
-        <%end%>
-      <%else%>
-        <% Category.includes(:latest_articles).each do |cat|%>
-            <% la = cat.latest_articles.first %>
-            <article class="featured-article article">
-            <a href="<%=category_path(cat.id)%>" > 
-              <span class="tl-cat"><%= cat.name%> </span>
-              <img class="img-responsive" src="<%= la ? la.image_url : "https://jasonsmovieblog.files.wordpress.com/2021/02/son-of-the-south-lucas-till.jpg?w=1720&h=560&crop=1" %>" alt="suits image" />
-              <div class="info">
-                <h4 class="title">
-                  <%= la ? la.title : 'Be the first to write an article!'  %>
-                </h4>
-              </div>
-              </a>
-            </article>
-
-        <%end%>
-      <%end%>
-    </div>
+      <%= display_article(@categories)%>
   </div>
 </div>

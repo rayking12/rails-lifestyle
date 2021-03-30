@@ -23,22 +23,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to root_path
     else
-      format.html { render :new, status: :unprocessable_entity }
-      format.json { render json: @article.errors, status: :unprocessable_entity }
-    end
-  end
-
-  def vote_for_article
-    @article = Article.find(params[:id])
-    if @article
-      @article.vote(current_user.id)
-      if @article.save
-        redirect_to request.referer
-      else
-        redirect_to login_path
-      end
-    else
-      redirect_to signup_path
+      render 'new'
     end
   end
 
@@ -46,29 +31,11 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def unvote_for_article
-    @article = Article.find(params[:id])
-    if @article
-      @article.unvote(current_user.id)
-      if @article.save
-        redirect_to request.referer
-      else
-        redirect_to login_path
-      end
-    else
-      redirect_to signup_path
-    end
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_article
     @article = Article.find(params[:id])
-  end
-
-  def require_login
-    redirect_to login_path unless current_user
   end
 
   # Only allow a list of trusted parameters through.

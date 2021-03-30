@@ -100,11 +100,11 @@ GEM
       addressable (~> 2.5)
     erubi (1.10.0)
     execjs (2.7.0)
-    factory_girl (4.9.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
-      railties (>= 3.0.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     ffi (1.15.0-x64-mingw32)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -131,6 +131,8 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     loofah (2.9.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -142,7 +144,7 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
-    mimemagic (0.3.5)
+    mimemagic (0.3.6)
     mini_magick (4.11.0)
     mini_mime (1.0.2)
     minitest (5.14.4)
@@ -291,10 +293,11 @@ DEPENDENCIES
   capybara (>= 3.26)
   cloudinary
   database_cleaner
-  factory_girl_rails
+  factory_bot_rails
   figaro
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
+  launchy (~> 2.5)
   pg (~> 1.2, >= 1.2.3)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
